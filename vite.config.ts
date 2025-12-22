@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/classic-resume-craft/", // ✅ REQUIRED for GitHub Pages
+  base: "/classic-resume-craft/",
 
   server: {
     host: "::",
