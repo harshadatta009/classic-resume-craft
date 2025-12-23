@@ -35,6 +35,14 @@ export interface Project {
   bullets: string[];
 }
 
+export type SectionType = 
+  | "education"
+  | "skills"
+  | "experience"
+  | "projects"
+  | "activities"
+  | "certifications";
+
 export interface ResumeData {
   name: string;
   title: string;
@@ -45,6 +53,7 @@ export interface ResumeData {
   projects: Project[];
   activities: string[];
   certifications: string[];
+  sectionOrder: SectionType[];
 }
 
 export const defaultResumeData: ResumeData = {
@@ -126,4 +135,5 @@ export const defaultResumeData: ResumeData = {
     "Google Cloud Professional Data Engineer",
     "Certified Kubernetes Administrator (CKA)",
   ],
+  sectionOrder: ["education", "skills", "experience", "projects", "activities", "certifications"],
 };
