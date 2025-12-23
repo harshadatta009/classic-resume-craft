@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ResumeData, defaultResumeData } from "@/types/resume";
+import { ResumeData, defaultResumeData, SectionType } from "@/types/resume";
 import ResumeForm from "@/components/resume/ResumeForm";
 import ResumePreview from "@/components/resume/ResumePreview";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,12 @@ const Index = () => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        // Ensure sectionOrder exists for backward compatibility
+        if (!parsed.sectionOrder) {
+          parsed.sectionOrder = ["education", "skills", "experience", "projects", "activities", "certifications"];
+        }
+        return parsed;
       } catch {
         return defaultResumeData;
       }
@@ -29,6 +34,10 @@ const Index = () => {
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(resumeData));
   }, [resumeData]);
+
+  const handleSectionReorder = (newOrder: SectionType[]) => {
+    setResumeData((prev) => ({ ...prev, sectionOrder: newOrder }));
+  };
 
   const handleExportPDF = async () => {
     const element = document.getElementById("resume-content");
@@ -109,11 +118,14 @@ const Index = () => {
           <div className="lg:overflow-auto" ref={previewRef}>
             <div className="bg-muted/30 p-6 rounded-lg min-h-[calc(100vh-8rem)]">
               <h2 className="text-sm font-medium text-muted-foreground mb-4">
-                Live Preview
+                Live Preview (drag sections to reorder)
               </h2>
               <div className="flex justify-center">
                 <div className="shadow-xl rounded overflow-hidden">
-                  <ResumePreview data={resumeData} />
+                  <ResumePreview
+                    data={resumeData}
+                    onSectionReorder={handleSectionReorder}
+                  />
                 </div>
               </div>
             </div>
