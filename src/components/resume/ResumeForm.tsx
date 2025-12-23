@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ResumeData, Education, WorkExperience, Project } from "@/types/resume";
+import { ResumeData, Education, WorkExperience, Project, LayoutSettings } from "@/types/resume";
 import { ResumeTemplate } from "@/types/templates";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,6 +9,7 @@ import { Plus, Trash2 } from "lucide-react";
 import FormSection from "./FormSection";
 import BulletList from "./BulletList";
 import TemplateSelector from "./TemplateSelector";
+import LayoutControls from "./LayoutControls";
 
 interface ResumeFormProps {
   data: ResumeData;
@@ -18,6 +19,7 @@ interface ResumeFormProps {
 const ResumeForm = ({ data, onChange }: ResumeFormProps) => {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
     template: true,
+    layout: false,
     header: false,
     education: false,
     skills: false,
@@ -121,6 +123,16 @@ const ResumeForm = ({ data, onChange }: ResumeFormProps) => {
     onChange({ ...data, template });
   };
 
+  const handleLayoutChange = (layout: LayoutSettings) => {
+    onChange({ ...data, layout });
+  };
+
+  const defaultLayout: LayoutSettings = {
+    fontSize: "medium",
+    spacing: "normal",
+    margins: "normal",
+  };
+
   return (
     <div className="space-y-3">
       {/* Template Selection */}
@@ -132,6 +144,18 @@ const ResumeForm = ({ data, onChange }: ResumeFormProps) => {
         <TemplateSelector
           value={data.template || "classic"}
           onChange={handleTemplateChange}
+        />
+      </FormSection>
+
+      {/* Layout Controls */}
+      <FormSection
+        title="Layout & Spacing"
+        isOpen={openSections.layout}
+        onToggle={() => toggleSection("layout")}
+      >
+        <LayoutControls
+          value={data.layout || defaultLayout}
+          onChange={handleLayoutChange}
         />
       </FormSection>
 

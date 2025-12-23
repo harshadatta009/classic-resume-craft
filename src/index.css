@@ -151,6 +151,127 @@
   line-height: 1.35;
 }
 
+/* ==================== FONT SIZE VARIATIONS ==================== */
+.font-small {
+  font-size: 9pt;
+}
+
+.font-small .resume-name {
+  font-size: 18pt;
+}
+
+.font-small .resume-section-title {
+  font-size: 9pt;
+}
+
+.font-small .resume-entry-title {
+  font-size: 9pt;
+}
+
+.font-small .resume-entry-subtitle {
+  font-size: 8.5pt;
+}
+
+.font-small .resume-bullet,
+.font-small .text-\[10pt\] {
+  font-size: 9pt !important;
+}
+
+.font-small .text-\[9pt\] {
+  font-size: 8pt !important;
+}
+
+.font-medium {
+  font-size: 10.5pt;
+}
+
+.font-large {
+  font-size: 11pt;
+}
+
+.font-large .resume-name {
+  font-size: 26pt;
+}
+
+.font-large .resume-section-title {
+  font-size: 12pt;
+}
+
+.font-large .resume-entry-title {
+  font-size: 11pt;
+}
+
+.font-large .resume-entry-subtitle {
+  font-size: 10.5pt;
+}
+
+.font-large .resume-bullet,
+.font-large .text-\[10pt\] {
+  font-size: 11pt !important;
+}
+
+.font-large .text-\[9pt\] {
+  font-size: 10pt !important;
+}
+
+/* ==================== SPACING VARIATIONS ==================== */
+.spacing-compact {
+  line-height: 1.2;
+}
+
+.spacing-compact .resume-divider {
+  margin: 4pt 0;
+}
+
+.spacing-compact .mb-2 {
+  margin-bottom: 0.25rem;
+}
+
+.spacing-compact .mb-3 {
+  margin-bottom: 0.5rem;
+}
+
+.spacing-compact .space-y-0\.5 > * + * {
+  margin-top: 0.05rem;
+}
+
+.spacing-normal {
+  line-height: 1.35;
+}
+
+.spacing-relaxed {
+  line-height: 1.5;
+}
+
+.spacing-relaxed .resume-divider {
+  margin: 12pt 0;
+}
+
+.spacing-relaxed .mb-2 {
+  margin-bottom: 0.75rem;
+}
+
+.spacing-relaxed .mb-3 {
+  margin-bottom: 1rem;
+}
+
+.spacing-relaxed .space-y-0\.5 > * + * {
+  margin-top: 0.25rem;
+}
+
+/* ==================== MARGIN VARIATIONS ==================== */
+.margins-narrow {
+  padding: 10mm 12mm;
+}
+
+.margins-normal {
+  padding: 15mm 18mm;
+}
+
+.margins-wide {
+  padding: 20mm 24mm;
+}
+
 /* ==================== TEMPLATE: CLASSIC ==================== */
 .template-classic {
   font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;

@@ -15,12 +15,15 @@ const Index = () => {
     if (saved) {
       try {
         const parsed = JSON.parse(saved);
-        // Ensure sectionOrder and template exist for backward compatibility
+        // Ensure sectionOrder, template, and layout exist for backward compatibility
         if (!parsed.sectionOrder) {
           parsed.sectionOrder = ["education", "skills", "experience", "projects", "activities", "certifications"];
         }
         if (!parsed.template) {
           parsed.template = "classic";
+        }
+        if (!parsed.layout) {
+          parsed.layout = { fontSize: "medium", spacing: "normal", margins: "normal" };
         }
         return parsed;
       } catch {
