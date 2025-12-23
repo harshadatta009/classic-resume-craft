@@ -187,9 +187,13 @@ const ResumePreview = ({ data, onSectionReorder }: ResumePreviewProps) => {
   ];
 
   const templateClass = `template-${data.template || "classic"}`;
+  const layout = data.layout || { fontSize: "medium", spacing: "normal", margins: "normal" };
+  const fontClass = `font-${layout.fontSize}`;
+  const spacingClass = `spacing-${layout.spacing}`;
+  const marginsClass = `margins-${layout.margins}`;
 
   return (
-    <div className={`resume-preview resume-page ${templateClass}`} id="resume-content">
+    <div className={`resume-preview resume-page ${templateClass} ${fontClass} ${spacingClass} ${marginsClass}`} id="resume-content">
       {/* Header */}
       <header className="text-center mb-2">
         <h1 className="resume-name">{data.name || "Your Name"}</h1>

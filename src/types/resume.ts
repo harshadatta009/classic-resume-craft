@@ -45,11 +45,22 @@ export type SectionType =
   | "activities"
   | "certifications";
 
+export type FontSize = "small" | "medium" | "large";
+export type Spacing = "compact" | "normal" | "relaxed";
+export type Margins = "narrow" | "normal" | "wide";
+
+export interface LayoutSettings {
+  fontSize: FontSize;
+  spacing: Spacing;
+  margins: Margins;
+}
+
 export interface ResumeData {
   name: string;
   title: string;
   contact: ContactInfo;
   template: ResumeTemplate;
+  layout: LayoutSettings;
   education: Education[];
   skills: TechnicalSkills;
   experience: WorkExperience[];
@@ -63,6 +74,11 @@ export const defaultResumeData: ResumeData = {
   name: "John Doe",
   title: "Software Engineer",
   template: "classic",
+  layout: {
+    fontSize: "medium",
+    spacing: "normal",
+    margins: "normal",
+  },
   contact: {
     phone: "+1 (555) 123-4567",
     email: "john.doe@email.com",
