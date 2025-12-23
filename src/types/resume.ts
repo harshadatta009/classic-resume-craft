@@ -1,3 +1,5 @@
+import { ResumeTemplate } from "./templates";
+
 export interface ContactInfo {
   phone: string;
   email: string;
@@ -47,6 +49,7 @@ export interface ResumeData {
   name: string;
   title: string;
   contact: ContactInfo;
+  template: ResumeTemplate;
   education: Education[];
   skills: TechnicalSkills;
   experience: WorkExperience[];
@@ -59,6 +62,7 @@ export interface ResumeData {
 export const defaultResumeData: ResumeData = {
   name: "John Doe",
   title: "Software Engineer",
+  template: "classic",
   contact: {
     phone: "+1 (555) 123-4567",
     email: "john.doe@email.com",

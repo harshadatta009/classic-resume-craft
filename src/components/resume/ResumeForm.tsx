@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ResumeData, Education, WorkExperience, Project } from "@/types/resume";
+import { ResumeTemplate } from "@/types/templates";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Plus, Trash2 } from "lucide-react";
 import FormSection from "./FormSection";
 import BulletList from "./BulletList";
+import TemplateSelector from "./TemplateSelector";
 
 interface ResumeFormProps {
   data: ResumeData;
@@ -15,7 +17,8 @@ interface ResumeFormProps {
 
 const ResumeForm = ({ data, onChange }: ResumeFormProps) => {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({
-    header: true,
+    template: true,
+    header: false,
     education: false,
     skills: false,
     experience: false,
@@ -114,8 +117,24 @@ const ResumeForm = ({ data, onChange }: ResumeFormProps) => {
     });
   };
 
+  const handleTemplateChange = (template: ResumeTemplate) => {
+    onChange({ ...data, template });
+  };
+
   return (
     <div className="space-y-3">
+      {/* Template Selection */}
+      <FormSection
+        title="Template Style"
+        isOpen={openSections.template}
+        onToggle={() => toggleSection("template")}
+      >
+        <TemplateSelector
+          value={data.template || "classic"}
+          onChange={handleTemplateChange}
+        />
+      </FormSection>
+
       {/* Header Section */}
       <FormSection
         title="Header & Contact"

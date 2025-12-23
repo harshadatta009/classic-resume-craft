@@ -186,13 +186,15 @@ const ResumePreview = ({ data, onSectionReorder }: ResumePreviewProps) => {
     "certifications",
   ];
 
+  const templateClass = `template-${data.template || "classic"}`;
+
   return (
-    <div className="resume-preview resume-page" id="resume-content">
+    <div className={`resume-preview resume-page ${templateClass}`} id="resume-content">
       {/* Header */}
       <header className="text-center mb-2">
         <h1 className="resume-name">{data.name || "Your Name"}</h1>
         {data.title && (
-          <p className="text-sm mt-1 text-resume-text-secondary font-serif italic">
+          <p className="resume-title text-sm mt-1 text-resume-text-secondary italic">
             {data.title}
           </p>
         )}

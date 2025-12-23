@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
 
 /* Professional Resume Builder Design System */
 
@@ -140,27 +140,30 @@
   }
 }
 
-/* A4 Page Styling */
+/* A4 Page Base Styling */
 .resume-page {
   width: 210mm;
   min-height: 297mm;
   padding: 15mm 18mm;
   background: hsl(var(--resume-bg));
   color: hsl(var(--resume-text));
-  font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;
   font-size: 10.5pt;
   line-height: 1.35;
 }
 
-/* Resume Typography */
-.resume-name {
+/* ==================== TEMPLATE: CLASSIC ==================== */
+.template-classic {
+  font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+}
+
+.template-classic .resume-name {
   font-size: 22pt;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
-.resume-section-title {
+.template-classic .resume-section-title {
   font-size: 11pt;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -168,28 +171,262 @@
   margin-bottom: 6pt;
 }
 
-.resume-divider {
+.template-classic .resume-divider {
   border-top: 0.5pt solid hsl(var(--resume-divider));
   margin: 8pt 0;
 }
 
-.resume-entry-title {
+.template-classic .resume-entry-title {
   font-weight: 600;
   font-size: 10.5pt;
 }
 
-.resume-entry-subtitle {
+.template-classic .resume-entry-subtitle {
   font-style: italic;
   font-size: 10pt;
   color: hsl(var(--resume-text-secondary));
 }
 
-.resume-bullet {
+.template-classic .resume-bullet {
   padding-left: 1.5em;
   text-indent: -1.5em;
 }
 
-.resume-bullet::before {
+.template-classic .resume-bullet::before {
   content: "•";
   margin-right: 0.5em;
+}
+
+/* ==================== TEMPLATE: MODERN ==================== */
+.template-modern {
+  font-family: 'Source Sans 3', 'Inter', sans-serif;
+  --template-accent: 220 80% 50%;
+}
+
+.template-modern .resume-name {
+  font-size: 28pt;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: hsl(var(--template-accent));
+}
+
+.template-modern .resume-section-title {
+  font-size: 12pt;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 8pt;
+  color: hsl(var(--template-accent));
+  border-bottom: 2pt solid hsl(var(--template-accent));
+  padding-bottom: 4pt;
+}
+
+.template-modern .resume-divider {
+  display: none;
+}
+
+.template-modern .resume-entry-title {
+  font-weight: 700;
+  font-size: 11pt;
+}
+
+.template-modern .resume-entry-subtitle {
+  font-style: normal;
+  font-size: 10pt;
+  color: hsl(var(--resume-text-secondary));
+  font-weight: 400;
+}
+
+.template-modern .resume-bullet {
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+}
+
+.template-modern .resume-bullet::before {
+  content: "▸";
+  margin-right: 0.4em;
+  color: hsl(var(--template-accent));
+}
+
+/* ==================== TEMPLATE: MINIMAL ==================== */
+.template-minimal {
+  font-family: 'Roboto', 'Inter', sans-serif;
+  padding: 20mm 22mm;
+}
+
+.template-minimal .resume-name {
+  font-size: 24pt;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.template-minimal .resume-section-title {
+  font-size: 9pt;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 10pt;
+  color: hsl(var(--resume-text-secondary));
+}
+
+.template-minimal .resume-divider {
+  border-top: none;
+  margin: 12pt 0;
+}
+
+.template-minimal .resume-entry-title {
+  font-weight: 500;
+  font-size: 10.5pt;
+}
+
+.template-minimal .resume-entry-subtitle {
+  font-style: normal;
+  font-size: 9.5pt;
+  color: hsl(var(--resume-text-secondary));
+  font-weight: 300;
+}
+
+.template-minimal .resume-bullet {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.template-minimal .resume-bullet::before {
+  content: "–";
+  margin-right: 0.5em;
+  color: hsl(var(--resume-text-secondary));
+}
+
+/* ==================== TEMPLATE: BOLD ==================== */
+.template-bold {
+  font-family: 'Playfair Display', Georgia, serif;
+  --template-accent: 0 0% 15%;
+}
+
+.template-bold .resume-name {
+  font-size: 32pt;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  border-bottom: 4pt solid hsl(var(--template-accent));
+  padding-bottom: 8pt;
+  display: inline-block;
+}
+
+.template-bold .resume-section-title {
+  font-size: 13pt;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 8pt;
+  background: hsl(var(--template-accent));
+  color: white;
+  padding: 4pt 8pt;
+  margin-left: -8pt;
+  margin-right: -8pt;
+}
+
+.template-bold .resume-divider {
+  display: none;
+}
+
+.template-bold .resume-entry-title {
+  font-weight: 700;
+  font-size: 11pt;
+}
+
+.template-bold .resume-entry-subtitle {
+  font-style: italic;
+  font-size: 10pt;
+  color: hsl(var(--resume-text-secondary));
+}
+
+.template-bold .resume-bullet {
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+
+.template-bold .resume-bullet::before {
+  content: "■";
+  margin-right: 0.5em;
+  font-size: 6pt;
+  vertical-align: middle;
+}
+
+/* ==================== TEMPLATE: ELEGANT ==================== */
+.template-elegant {
+  font-family: 'Merriweather', Georgia, serif;
+  --template-accent: 25 70% 45%;
+}
+
+.template-elegant .resume-name {
+  font-size: 26pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  text-align: center;
+}
+
+.template-elegant .resume-title {
+  color: hsl(var(--template-accent));
+}
+
+.template-elegant .resume-section-title {
+  font-size: 11pt;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 6pt;
+  text-align: center;
+  position: relative;
+}
+
+.template-elegant .resume-section-title::before,
+.template-elegant .resume-section-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 20%;
+  height: 1pt;
+  background: hsl(var(--template-accent));
+}
+
+.template-elegant .resume-section-title::before {
+  left: 0;
+}
+
+.template-elegant .resume-section-title::after {
+  right: 0;
+}
+
+.template-elegant .resume-divider {
+  border-top: 1pt solid hsl(var(--template-accent) / 0.3);
+  margin: 10pt 0;
+}
+
+.template-elegant .resume-entry-title {
+  font-weight: 700;
+  font-size: 10.5pt;
+  color: hsl(var(--template-accent));
+}
+
+.template-elegant .resume-entry-subtitle {
+  font-style: italic;
+  font-size: 10pt;
+  color: hsl(var(--resume-text-secondary));
+}
+
+.template-elegant .resume-bullet {
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+
+.template-elegant .resume-bullet::before {
+  content: "◆";
+  margin-right: 0.5em;
+  font-size: 6pt;
+  vertical-align: middle;
+  color: hsl(var(--template-accent));
 }
