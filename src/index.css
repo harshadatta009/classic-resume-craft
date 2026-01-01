@@ -143,12 +143,24 @@
 /* A4 Page Base Styling */
 .resume-page {
   width: 210mm;
+  max-width: 210mm;
   min-height: 297mm;
   padding: 15mm 18mm;
   background: hsl(var(--resume-bg));
   color: hsl(var(--resume-text));
   font-size: 10.5pt;
   line-height: 1.35;
+  box-sizing: border-box;
+}
+
+/* PDF Export - prevent extra blank page */
+@media print {
+  .resume-page {
+    min-height: auto !important;
+    height: auto !important;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
 }
 
 /* ==================== FONT SIZE VARIATIONS ==================== */
