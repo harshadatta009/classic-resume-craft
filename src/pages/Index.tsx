@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { ResumeData, defaultResumeData, SectionType } from "@/types/resume";
 import ResumeForm from "@/components/resume/ResumeForm";
 import ResumePreview from "@/components/resume/ResumePreview";
+import PageFitMeter from "@/components/resume/PageFitMeter";
 import { Button } from "@/components/ui/button";
 import { Download, FileText, RotateCcw } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -129,9 +130,12 @@ const Index = () => {
           {/* Preview Panel */}
           <div className="lg:overflow-auto" ref={previewRef}>
             <div className="bg-muted/30 p-6 rounded-lg min-h-[calc(100vh-8rem)]">
-              <h2 className="text-sm font-medium text-muted-foreground mb-4">
-                Live Preview (drag sections to reorder)
-              </h2>
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-sm font-medium text-muted-foreground">
+                  Live Preview (drag sections to reorder)
+                </h2>
+                <PageFitMeter targetElementId="resume-content" />
+              </div>
               <div className="flex justify-center">
                 <div className="shadow-xl rounded overflow-hidden">
                   <ResumePreview
